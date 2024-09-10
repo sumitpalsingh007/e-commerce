@@ -27,6 +27,7 @@ logging:
     org.springframework.data: DEBUG
     org.hibernate.SQL: DEBUG
     org.springframework.security: DEBUG
+    root: info
 
 
 springdoc:

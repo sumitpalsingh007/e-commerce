@@ -33,6 +33,7 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
+
     /*public void registerUser(UserDTO userDTO) {
         User user = new User();
         user.setFirstname(userDTO.getUsername());
