@@ -40,14 +40,15 @@ public class AuthenticationServiceApplication {
 										 .build();
 			System.out.println("Manager token: " + service.register(manager).getAccessToken());
 
-			var user = RegisterRequest.builder()
-					.firstname("User")
-					.lastname("User")
-					.email("user@mail.com")
-					.password("password")
-					.role(Role.USER)
-					.build();
-			System.out.println("User token: " + service.register(user).getAccessToken());
+			// Uncomment the following lines to create a user for quick testing purposes.
+//			var user = RegisterRequest.builder()
+//					.firstname("User")
+//					.lastname("User")
+//					.email("user@mail.com")
+//					.password("password")
+//					.role(Role.USER)
+//					.build();
+//			System.out.println("User token: " + service.register(user).getAccessToken());
 
 		};
 	}
