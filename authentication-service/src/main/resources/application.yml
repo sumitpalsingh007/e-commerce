@@ -1,7 +1,4 @@
 spring:
-  mvc:
-    servlet:
-      path: /api
   datasource:
     url: jdbc:h2:mem:mydb
     driver-class-name: org.h2.Driver
@@ -10,24 +7,38 @@ spring:
   sql:
     init:
       mode: always
+
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     database-platform: org.hibernate.dialect.H2Dialect
 
   h2:
     console:
-      enabled: true
+      enabled: false
       path: /h2-console
       settings:
         web-admin-password: test
         web-allow-others: true
-dialect: org.hibernate.dialect.H2Dialect    
-    
 
 logging:
   level:
     org.springframework.data: DEBUG
     org.hibernate.SQL: DEBUG
     org.springframework.security: DEBUG
+    root: info
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 604800000 # 7 days
