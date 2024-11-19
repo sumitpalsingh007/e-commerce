@@ -1,7 +1,13 @@
 package com.helloworldtechconsulting.config;
 
+import org.springframework.boot.devtools.restart.RestartScope;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.ollama.OllamaContainer;
+import org.testcontainers.utility.DockerImageName;
 
 @Configuration
 public class ContainersConfig {
@@ -10,7 +16,7 @@ public class ContainersConfig {
     @ServiceConnection
     @RestartScope
     PostgreSQLContainer<?> postgreSQLContainer() {
-        return new PostgresSQLContainer<>("postgres:16-alpine");
+        return new PostgreSQLContainer<>("postgres:16-alpine");
     }
 
     @Bean
