@@ -14,9 +14,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
+import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api/v1/product")
 @AllArgsConstructor
 public class ProductController {
 
@@ -44,5 +45,11 @@ public class ProductController {
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
                 .body(product);
+    }
+
+    @GetMapping("/byOrderId/{id}")
+    public List<Product> findByOrderId(@PathVariable Long id){
+        return productService.findByOrderId(id);
+
     }
 }

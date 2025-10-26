@@ -1,3 +1,5 @@
+server:
+  port: 8082
 spring:
   datasource:
     url: jdbc:h2:mem:mydb
@@ -24,10 +26,10 @@ spring:
 
 logging:
   level:
-    org.springframework.data: DEBUG
+    org.springframework.data: INFO
     org.hibernate.SQL: DEBUG
     org.springframework.security: DEBUG
-    root: info
+    root: INFO
 
 
 springdoc:

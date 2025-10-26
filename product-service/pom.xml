@@ -16,6 +16,8 @@
   <properties>
     <java.version>17</java.version>
     <testcontainers.version>1.20.1</testcontainers.version>
+      <spring-cloud.version>2023.0.3</spring-cloud.version>
+      <flyway.version>10.17.2</flyway.version>
   </properties>
   <dependencies>
     <dependency>
@@ -33,15 +35,25 @@
     <dependency>
       <groupId>org.flywaydb</groupId>
       <artifactId>flyway-core</artifactId>
+        <version>${flyway.version}</version>
     </dependency>
-    <dependency>
+    <!--<dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
       <scope>runtime</scope>
       <optional>true</optional>
-    </dependency>
-
+    </dependency>-->
     <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+<!--  <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>  &lt;!&ndash; IMPORTANT: not test &ndash;&gt;
+  </dependency>-->
+
+      <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <!--<scope>test</scope>-->
@@ -91,6 +103,7 @@
     <dependency>
       <groupId>org.flywaydb</groupId>
       <artifactId>flyway-database-postgresql</artifactId>
+        <version>${flyway.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.protobuf</groupId>
@@ -130,7 +143,13 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -151,7 +170,7 @@
     </plugins>
   </build>
 
-  <profiles>
+ <profiles>
     <profile>
       <id>test</id>
       <activation>
