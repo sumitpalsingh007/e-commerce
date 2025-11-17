@@ -14,7 +14,7 @@ RUN mvn clean package -DskipTests
 RUN mvn test
 
 # Stage 2: Run the application using OpenJDK
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 
 # Copy the JAR file from the build stage
