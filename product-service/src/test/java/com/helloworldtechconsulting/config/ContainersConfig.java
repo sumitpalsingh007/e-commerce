@@ -1,6 +1,6 @@
 package com.helloworldtechconsulting.config;
 
-import org.springframework.boot.devtools.restart.RestartScope;
+
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ public class ContainersConfig {
 
     @Bean
     @ServiceConnection
-    @RestartScope
+    //@RestartScope
     PostgreSQLContainer<?> postgreSQLContainer() {
         return new PostgreSQLContainer<>("postgres:16-alpine");
     }

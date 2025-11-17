@@ -2,6 +2,7 @@ package com.helloworldtechconsulting.feign;
 
 import com.helloworldtechconsulting.config.OrderServiceFeignConfig;
 import com.helloworldtechconsulting.dto.ProductDto;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,5 +13,6 @@ import java.util.List;
 public interface ProductClient {
 
     @GetMapping("/product/byOrderId/{id}")
+    @Cacheable(value = "products", key = "#id", unless = "#result == null || #result.isEmpty()")
     List<ProductDto> findByOrderId(@PathVariable Long id);
 }

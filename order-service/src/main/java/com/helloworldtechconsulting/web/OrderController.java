@@ -25,4 +25,9 @@ public class OrderController {
                 .products(product)
                 .build();
     }
+
+    @GetMapping("/evictCache/{id}")
+    public void invalidateProductCacheById(@PathVariable Long id) {
+        orderService.invalidateProductCache(id);
+    }
 }
