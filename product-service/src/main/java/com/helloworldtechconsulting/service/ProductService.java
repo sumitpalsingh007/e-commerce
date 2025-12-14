@@ -27,4 +27,13 @@ public class ProductService {
         var product2 = Product.builder().id(1L).name("p2").build();
         return List.of(product1, product2);
     }
+
+    public List<Product> findById(Long id) {
+        var product1 = Product.builder()
+                .id(id)
+                .name("p1")
+                .inventory(20L)
+                .build();
+        return List.of(product1);
+    }
 }

@@ -20,5 +20,5 @@ public class Product {
     String name;
     Double price;
     int orderEstimate;
-
+    Long inventory;
 }
