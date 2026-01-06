@@ -30,4 +30,9 @@ public class OrderController {
     public void invalidateProductCacheById(@PathVariable Long id) {
         orderService.invalidateProductCache(id);
     }
+
+    public Long createOrder(long productId, Integer quantity) {
+        var order = orderService.order(productId, quantity);
+        return order.getId();
+    }
 }

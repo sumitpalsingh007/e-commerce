@@ -30,7 +30,11 @@ public class GatewayConfig {
                         .filters(f -> f.filter(jwtAuthenticationFilter)
                                 .rewritePath("/order/(?<segment>.*)", "/api/v1/orders/${segment}"))
                         .uri("http://localhost:8082"))
-                // ... existing code ...
+                .route("orders_route", r -> r.path("/orders/**")
+                        .filters(f -> f.filter(jwtAuthenticationFilter))
+                        .uri("lb://ORDER-SERVICE"))
+                .route("payments_route", r -> r.path("/payments/**")
+                        .uri("lb://PAYMENT-SERVICE"))
                 .build();
     }
 }

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Builder
 public class ProductDto implements Serializable {
 
-    String id;
+    Integer id;
     String name;
     String description;
 }

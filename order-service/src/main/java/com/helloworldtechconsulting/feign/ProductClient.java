@@ -15,4 +15,7 @@ public interface ProductClient {
     @GetMapping("/product/byOrderId/{id}")
     @Cacheable(value = "products", key = "#id", unless = "#result == null || #result.isEmpty()")
     List<ProductDto> findByOrderId(@PathVariable Long id);
+
+    @GetMapping("/{id}")
+    ProductDto getProductById(long productId);
 }

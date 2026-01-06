@@ -52,4 +52,10 @@ public class ProductController {
         return productService.findByOrderId(id);
 
     }
+
+    @GetMapping("/{id}")
+    public List<Product> findById(@PathVariable Long id){
+        return productService.findById(id);
+
+    }
 }
